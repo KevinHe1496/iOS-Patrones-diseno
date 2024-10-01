@@ -27,10 +27,10 @@
                     <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                 </imageView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KUv-uE-lui">
-                    <rect key="frame" x="24" y="316.66666666666669" width="345" height="218.66666666666669"/>
+                    <rect key="frame" x="24" y="333.33333333333331" width="345" height="185.33333333333331"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="PiG-4o-UbU">
-                            <rect key="frame" x="12" y="12" width="321" height="194.66666666666666"/>
+                            <rect key="frame" x="12" y="12" width="321" height="161.33333333333334"/>
                             <subviews>
                                 <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="drX-9Y-YFE">
                                     <rect key="frame" x="0.0" y="0.0" width="321" height="34"/>
@@ -42,19 +42,19 @@
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                 </textField>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P5w-3C-Kpo">
-                                    <rect key="frame" x="0.0" y="94" width="321" height="20.333333333333329"/>
+                                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P5w-3C-Kpo">
+                                    <rect key="frame" x="0.0" y="87.666666666666686" width="321" height="0.0"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="iws-7K-f9a">
-                                    <rect key="frame" x="0.0" y="127.33333333333331" width="321" height="20"/>
+                                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="iws-7K-f9a">
+                                    <rect key="frame" x="0.0" y="94" width="321" height="20"/>
                                 </activityIndicatorView>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U2v-Vr-724">
-                                    <rect key="frame" x="0.0" y="160.33333333333331" width="321" height="34.333333333333343"/>
+                                    <rect key="frame" x="0.0" y="126.99999999999999" width="321" height="34.333333333333329"/>
                                     <state key="normal" title="Button"/>
-                                    <buttonConfiguration key="configuration" style="filled" title="Button"/>
+                                    <buttonConfiguration key="configuration" style="filled" title="Login"/>
                                     <connections>
                                         <action selector="onLoginButtonTapped:" destination="-1" eventType="touchUpInside" id="xuD-Fy-ptM"/>
                                     </connections>
