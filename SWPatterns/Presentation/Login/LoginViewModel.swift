@@ -12,19 +12,30 @@ enum LoginState{
 final class LoginViewModel {
     // Propiedad que utiliza la clase Binding para notificar los cambios de estado.
     let onStateChanged = Binding<LoginState>()
+    private let useCase: LoginUseCaseContract
+    
+    init(useCase: LoginUseCaseContract) {
+        self.useCase = useCase
+    }
     
     func signIn(_ username: String?, _ password: String?){
-        // 1. Validamos que el nombre de usuario no sea nulo y sea válido.
-        guard let username, validateUsername(username) else{
-            return onStateChanged.update(newValue: .error(reason: "Invalid username"))
-        }
-        // 2. Validamos que la contraseña no sea nula y sea válida.
-        guard let password, validatePassword(password) else{
-            return onStateChanged.update(newValue: .error(reason: "invalid password"))
-        }
+        
         
         // 3. Si ambos son válidos, actualizamos el estado a 'loading' (cargando).
         onStateChanged.update(newValue: .loading)
+        let credentials = Credentials(username: username ?? "", password: password ?? "")
+        useCase.execute(credentials: credentials) { [weak self] result in
+            do {
+                // el .get Devuelve el valor de success
+                try result.get()
+                // si todo sale bien cambiamos el valor
+                self?.onStateChanged.update(newValue: .success)
+            } catch let error as LoginUseCaseError {
+                self?.onStateChanged.update(newValue: .error(reason: error.reason))
+            } catch {
+                self?.onStateChanged.update(newValue: .error(reason: "Something has happened"))
+            }
+        }
         DispatchQueue.global().asyncAfter(deadline: .now() + 3){ [weak self] in
             // Después del retraso, actualizamos el estado a 'success' (login exitoso).
             self?.onStateChanged.update(newValue: .success)
@@ -32,13 +43,5 @@ final class LoginViewModel {
         }
     }
     
-    // Validación básica para el nombre de usuario (debe contener un "@" y no estar vacío).
-    private func validateUsername(_ username: String) -> Bool {
-        username.contains("@") && !username.isEmpty
-    }
     
-    // Validación básica para la contraseña (debe tener al menos 4 caracteres).
-    private func validatePassword(_ password: String) -> Bool {
-        password.count >= 4
-    }
 }

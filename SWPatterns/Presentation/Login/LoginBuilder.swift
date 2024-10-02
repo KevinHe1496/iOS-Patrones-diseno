@@ -5,8 +5,9 @@ final class LoginBuilder {
 
     // Método que construye la vista de login.
     func build() -> UIViewController {
+        let loginUseCase = LoginUseCase()
         // Creamos una instancia del ViewModel de login.
-        let viewModel = LoginViewModel()
+        let viewModel = LoginViewModel(useCase: loginUseCase)
 
         // Creamos una instancia del controlador de la vista de login y le pasamos el ViewModel.
         let viewController = LoginViewController(viewModel: viewModel)
