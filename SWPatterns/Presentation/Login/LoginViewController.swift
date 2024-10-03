@@ -44,6 +44,7 @@ final class LoginViewController: UIViewController {
             case .success:
                 // Si el estado es 'success', mostramos el éxito.
                 self?.renderSuccess()
+                self?.present(HeroesListBuilder().build(), animated: true)
             case .error(reason: let reason):
                 // Si hay un error, mostramos el mensaje de error.
                 self?.renderError(reason)

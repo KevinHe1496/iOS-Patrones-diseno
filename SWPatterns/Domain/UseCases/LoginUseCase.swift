@@ -15,6 +15,13 @@ protocol LoginUseCaseContract {
 }
 
 final class LoginUseCase: LoginUseCaseContract {
+    
+    private let dataSource: SessionDataSourceContract
+    
+    init(dataSource: SessionDataSourceContract = SessionDataSource()) {
+        self.dataSource = dataSource
+    }
+    
     func execute(credentials: Credentials, completion: @escaping (Result<Void, LoginUseCaseError>) -> Void) {
         
         // 1. Validamos que el nombre de usuario no sea nulo y sea válido.
@@ -26,9 +33,17 @@ final class LoginUseCase: LoginUseCaseContract {
         guard validatePassword(credentials.password) else{
             return completion(.failure(LoginUseCaseError(reason: "Invalid password")))
         }
-        DispatchQueue.global().asyncAfter(deadline: .now() + 10) {
-            completion(.success(()))
-        }
+        LoginAPIRequest(credentials: credentials)
+            .perform { [weak self] result in
+                switch result {
+                    
+                case .success(let token):
+                    self?.dataSource.storeSession(token)
+                    completion(.success(()))
+                case .failure:
+                    completion(.failure(LoginUseCaseError(reason: "Network failed")))
+                }
+            }
 
     }
     

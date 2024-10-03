@@ -19,7 +19,7 @@ protocol APIRequest {
     var body: Encodable? { get }
     var path: String { get }
     var headers: [String: String] { get }
-    var queryParameters: [String : String]? { get }
+    var queryParameters: [String : String] { get }
     
     associatedtype Response: Decodable
     typealias APIRequestResponse = Result<Response, APIErrorReponse>
@@ -57,5 +57,28 @@ extension APIRequest {
         request.timeoutInterval = 10
         return request
         
+    }
+}
+
+
+// MARK: - Execution
+
+extension APIRequest {
+    func perform(session: APISessionContract = APISession.shared, completion: @escaping APIRequestCompletion) {
+        session.request(apiRequest: self) { result in
+            do {
+                let data = try result.get()
+                if Response.self == Void.self{
+                    return completion(.success(() as! Response))
+                }else if Response.self == Data.self {
+                    return completion(.success(data as! Response))
+                }
+                return try completion(.success(JSONDecoder().decode(Response.self, from: data)))
+            } catch let error as APIErrorReponse{
+                completion(.failure(error))
+            } catch {
+                completion(.failure(APIErrorReponse.unknown(path)))
+            }
+        }
     }
 }
