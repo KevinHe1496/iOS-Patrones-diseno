@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum HeroesListState {
+enum HeroesListState: Equatable {
     case loading
     case error(reason: String)
     case success
@@ -18,6 +18,9 @@ final class HeroesListViewModel {
     let onStateChanged = Binding<HeroesListState>()
     private(set) var heroes: [Hero] = []
     private let useCase: GetAllHeroesUseCaseContract
+    
+    // Añadir un closure para manejar la navegación
+    var onHeroSelected: ((Hero) -> Void)?
     
     init(useCase: GetAllHeroesUseCaseContract) {
         self.useCase = useCase
@@ -34,4 +37,11 @@ final class HeroesListViewModel {
             }
         }
     }
+    
+    // Método que se llama cuando un héroe es seleccionado
+    func selectHero(at index: Int) {
+        let hero = heroes[index]
+        onHeroSelected?(hero) // Aquí pasamos el héroe seleccionado a través del closure
+    }
+    
 }

@@ -19,7 +19,7 @@
                     <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="ILj-F6-bYn">
                         <rect key="frame" x="16" y="12" width="390" height="66"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="LSP-3y-UiT" customClass="AsyncImageView" customModule="SWPatterns" customModuleProvider="target">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="LSP-3y-UiT" customClass="AsyncImageView" customModule="SWPatterns" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="66" height="66"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="LSP-3y-UiT" secondAttribute="height" multiplier="1:1" id="QVS-9Q-cjF"/>

@@ -33,11 +33,24 @@ class HeroesListViewController: UIViewController {
         tableView.register(HeroTableViewCell.nib, forCellReuseIdentifier: HeroTableViewCell.reuseIdentifier)
         bind()
         viewModel.load()
+        
+        
+        // Enlazar el evento de selección del héroe al método de navegación
+        viewModel.onHeroSelected = { [weak self] hero in
+            self?.navigateToHeroDetail(with: hero)
+        }
     }
     
     
     @IBAction func onRetryTapped(_ sender: UIButton) {
     }
+        
+        // Método que se llama cuando se selecciona un héroe y navega a la vista de detalles.
+        private func navigateToHeroDetail(with hero: Hero) {
+            let detailViewModel = HeroDetailBuilder().build(hero)  // Crear el ViewModel para detalles
+            
+            navigationController?.pushViewController(detailViewModel, animated: true)  // Navegar
+        }
     
 
     //MARK: - States
@@ -101,7 +114,7 @@ extension HeroesListViewController: UITableViewDataSource, UITableViewDelegate{
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("holiwi")
+        viewModel.selectHero(at: indexPath.row)
     }
     
 }
