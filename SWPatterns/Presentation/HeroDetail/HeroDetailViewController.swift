@@ -60,14 +60,17 @@ class HeroDetailViewController: UIViewController {
     }
     
     private func renderLoading() {
-        titleLabel.text = "Cargando..."
-        descriptionLabel.text = "Cargando...."
+        titleLabel.text = ""
+        descriptionLabel.text = ""
         heroImageView.image = nil
         spinner.startAnimating()
     }
     
     private func renderError(_ reason: String) {
         spinner.stopAnimating()
+        titleLabel.text = ""
+        descriptionLabel.text = ""
+        heroImageView.image = nil
     }
     
     private func renderSuccess(){

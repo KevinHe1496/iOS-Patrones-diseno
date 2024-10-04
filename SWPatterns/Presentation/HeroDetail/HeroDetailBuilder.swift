@@ -12,7 +12,7 @@ import UIKit
 final class HeroDetailBuilder {
     
     func build(_ hero: Hero) -> UIViewController{
-        print(hero)
+        
         let useCase = GetHeroDetailUseCase()
         let viewModel = HeroDetailViewModel(useCase: useCase)
         let viewController = HeroDetailViewController(viewModel: viewModel, hero: hero)
