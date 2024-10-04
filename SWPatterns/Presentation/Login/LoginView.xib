@@ -26,6 +26,9 @@
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fondo3" translatesAutoresizingMaskIntoConstraints="NO" id="Qlz-SJ-bC9">
                     <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                 </imageView>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dragon-ball-z" translatesAutoresizingMaskIntoConstraints="NO" id="rLb-9x-13l">
+                    <rect key="frame" x="70" y="139" width="253" height="124.33333333333331"/>
+                </imageView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KUv-uE-lui">
                     <rect key="frame" x="24" y="333.33333333333331" width="345" height="185.33333333333331"/>
                     <subviews>
@@ -74,19 +77,24 @@
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="rLb-9x-13l" secondAttribute="trailing" constant="70" id="7BH-cc-y5C"/>
+                <constraint firstItem="KUv-uE-lui" firstAttribute="top" secondItem="rLb-9x-13l" secondAttribute="bottom" constant="70" id="9Pp-2i-dyH"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="KUv-uE-lui" secondAttribute="trailing" constant="24" id="9oI-7G-MbG"/>
                 <constraint firstItem="KUv-uE-lui" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="24" id="Fx0-HR-STq"/>
                 <constraint firstAttribute="trailing" secondItem="Qlz-SJ-bC9" secondAttribute="trailing" id="MxQ-0A-cBu"/>
                 <constraint firstItem="Qlz-SJ-bC9" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="QRy-uN-tHF"/>
                 <constraint firstItem="KUv-uE-lui" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="THn-S9-1JA"/>
+                <constraint firstItem="rLb-9x-13l" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="70" id="a63-qM-aRR"/>
                 <constraint firstItem="Qlz-SJ-bC9" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="f6E-EP-Gpc"/>
+                <constraint firstItem="rLb-9x-13l" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="80" id="p0e-cV-si1"/>
                 <constraint firstAttribute="bottom" secondItem="Qlz-SJ-bC9" secondAttribute="bottom" id="pSo-51-v4G"/>
                 <constraint firstItem="KUv-uE-lui" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="toG-qM-MVh"/>
             </constraints>
-            <point key="canvasLocation" x="132" y="-12"/>
+            <point key="canvasLocation" x="130.53435114503816" y="-12.67605633802817"/>
         </view>
     </objects>
     <resources>
+        <image name="dragon-ball-z" width="4200" height="2780"/>
         <image name="fondo3" width="1080" height="1920"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

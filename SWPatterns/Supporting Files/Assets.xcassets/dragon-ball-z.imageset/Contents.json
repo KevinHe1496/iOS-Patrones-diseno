@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "dragon-ball-z.png",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

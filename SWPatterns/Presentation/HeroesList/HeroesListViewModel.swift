@@ -19,8 +19,7 @@ final class HeroesListViewModel {
     private(set) var heroes: [Hero] = []
     private let useCase: GetAllHeroesUseCaseContract
     
-    // Añadir un closure para manejar la navegación
-    var onHeroSelected: ((Hero) -> Void)?
+
     
     init(useCase: GetAllHeroesUseCaseContract) {
         self.useCase = useCase
@@ -36,12 +35,6 @@ final class HeroesListViewModel {
                 self?.onStateChanged.update(newValue: .error(reason: error.localizedDescription))
             }
         }
-    }
-    
-    // Método que se llama cuando un héroe es seleccionado
-    func selectHero(at index: Int) {
-        let hero = heroes[index]
-        onHeroSelected?(hero) // Aquí pasamos el héroe seleccionado a través del closure
     }
     
 }

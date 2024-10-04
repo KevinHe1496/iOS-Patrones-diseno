@@ -16,7 +16,7 @@ enum HeroDetailState: Equatable{
 
 final class HeroDetailViewModel {
     let onStateChange = Binding<HeroDetailState>()
-    private(set) var hero: [Hero] = []
+    private(set) var hero: Hero?
     private let useCase: GetHeroDetailUseCaseContract
     
     
