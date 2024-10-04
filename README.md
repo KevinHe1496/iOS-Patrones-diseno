@@ -1,6 +1,10 @@
 # Dragon Ball Heroes App MVVM
 
-**DragonBallHeroes** es una aplicación iOS desarrollada en Swift, diseñada para mostrar a los personajes de Dragon Ball Z junto con sus descripciones. El proyecto combina **XIBs** para la interfaz de usuario y **UITableViewControllers** para presentar la información de manera organizada. También integra una **API REST** para obtener los datos de los personajes, y se han incluido **Unit Testing** para garantizar la calidad del código. Se ha implementado el patrón de diseño **MVVM** (Model-View-ViewModel) para estructurar la aplicación de manera eficiente, separando claramente la lógica de negocio, la interfaz de usuario y la gestión de datos.
+**Dragon Ball Heroes** es una aplicación iOS desarrollada en Swift, diseñada para mostrar a los personajes de Dragon Ball Z junto con sus descripciones. El proyecto combina **XIBs** para la interfaz de usuario y **UITableViewControllers** para presentar la información de manera organizada. También integra una **API REST** para obtener los datos de los personajes, y se han incluido **Unit Testing** para garantizar la calidad del código. 
+
+### Implementación del Patrón MVVM
+
+Se ha implementado el patrón de diseño **MVVM (Model-View-ViewModel)** para estructurar la aplicación de manera eficiente. Este patrón permite una clara separación de responsabilidades, facilitando el desarrollo y mantenimiento del código. 
 
 ![Login](https://i.postimg.cc/TY3BFNYV/pantallas.png)
 
