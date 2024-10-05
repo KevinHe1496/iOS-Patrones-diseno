@@ -28,6 +28,7 @@ class HeroesListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "Personajes"
         tableView.dataSource = self
         tableView.delegate = self
         tableView.register(HeroTableViewCell.nib, forCellReuseIdentifier: HeroTableViewCell.reuseIdentifier)

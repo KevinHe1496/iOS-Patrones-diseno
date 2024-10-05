@@ -34,6 +34,7 @@ class HeroDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = hero.name
         bind()
         viewModel.load()
         
