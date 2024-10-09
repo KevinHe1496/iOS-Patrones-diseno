@@ -11,11 +11,11 @@ import Foundation
 protocol GetHeroDetailUseCaseContract {
     // Método que debe ser implementado para ejecutar la obtención de detalles del héroe.
     // Utiliza un closure como parámetro que devuelve un resultado de tipo Hero o un error.
-    func execute(completion: @escaping (Result<Hero, Error>) -> Void)
+    func execute(name: String, completion: @escaping (Result<Hero, Error>) -> Void)
 }
 
 final class GetHeroDetailUseCase: GetHeroDetailUseCaseContract {
-    func execute(completion: @escaping (Result<Hero, any Error>) -> Void) {
+    func execute(name: String, completion: @escaping (Result<Hero, any Error>) -> Void) {
         
         // Se hace la solicitud para obtener un héroe.
         GetHeroesAPIRequest(name: "")

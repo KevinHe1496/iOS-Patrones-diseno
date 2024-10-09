@@ -11,15 +11,14 @@ import UIKit
 
 final class HeroDetailBuilder {
     
-    func build(_ hero: Hero) -> UIViewController{
-        
-        let useCase = GetHeroDetailUseCase()
-        let viewModel = HeroDetailViewModel(useCase: useCase)
-        let viewController = HeroDetailViewController(viewModel: viewModel, hero: hero)
-        
-        viewController.modalPresentationStyle = .fullScreen
-        
-        return viewController
+    private let name: String
+    
+    init(name: String) {
+        self.name = name
+    }
+    
+    func build() -> UIViewController{
+        HeroDetailViewController(viewModel: HeroDetailViewModel(heroName: name))
     }
     
 }

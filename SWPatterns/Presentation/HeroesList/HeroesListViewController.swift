@@ -107,9 +107,15 @@ extension HeroesListViewController: UITableViewDataSource, UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         tableView.deselectRow(at: indexPath, animated: true)
-        let heroSelected = viewModel.heroes[indexPath.row]
-        let heroDetailVC = HeroDetailBuilder().build(heroSelected)
-        navigationController?.pushViewController(heroDetailVC, animated: true)
+        if viewModel.heroes.count >= indexPath.row{
+            let heroSelected = viewModel.heroes[indexPath.row]
+            let heroDetailVC = HeroDetailBuilder(name: heroSelected.name).build()
+            navigationController?.pushViewController(heroDetailVC, animated: true)
+            
+        }
+        
+        
+        
     }
     
 }

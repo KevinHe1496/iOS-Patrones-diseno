@@ -18,13 +18,12 @@ class HeroDetailViewController: UIViewController {
     @IBOutlet weak var descriptionLabel: UILabel!
     
     private let viewModel: HeroDetailViewModel
-    private var hero: Hero
+    
  
  
     
-    init(viewModel: HeroDetailViewModel, hero: Hero) {
+    init(viewModel: HeroDetailViewModel) {
         self.viewModel = viewModel
-        self.hero = hero
         super.init(nibName: "HeroDetailViewController", bundle: Bundle(for: type(of: self)))
     }
     
@@ -34,7 +33,7 @@ class HeroDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = hero.name
+        title = viewModel.hero?.name
         bind()
         viewModel.load()
         
@@ -61,6 +60,7 @@ class HeroDetailViewController: UIViewController {
     }
     
     private func renderLoading() {
+        
         titleLabel.text = ""
         descriptionLabel.text = ""
         heroImageView.image = nil
@@ -75,9 +75,11 @@ class HeroDetailViewController: UIViewController {
     }
     
     private func renderSuccess(){
-        titleLabel.text = hero.name
-        descriptionLabel.text = hero.description
-        heroImageView.setImage(hero.photo)
+        titleLabel.text = viewModel.hero?.name
+        descriptionLabel.text = viewModel.hero?.description
+        if let imageHero = viewModel.hero?.photo{
+            heroImageView.setImage(imageHero)
+        }
         spinner.stopAnimating()
     }
     
