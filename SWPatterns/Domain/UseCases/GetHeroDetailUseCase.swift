@@ -18,7 +18,7 @@ final class GetHeroDetailUseCase: GetHeroDetailUseCaseContract {
     func execute(name: String, completion: @escaping (Result<Hero, any Error>) -> Void) {
         
         // Se hace la solicitud para obtener un héroe.
-        GetHeroesAPIRequest(name: "")
+        GetHeroesAPIRequest(name: name)
             .perform { result in
                 do {
                     // Obtenemos el array de héroes del resultado.
