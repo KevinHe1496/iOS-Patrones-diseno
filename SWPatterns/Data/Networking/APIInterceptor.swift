@@ -8,14 +8,12 @@
 import Foundation
 
 
-protocol APIInterceptor {
-
-}
-
+protocol APIInterceptor { }
 
 protocol ApiRequestInterceptor: APIInterceptor {
     func intercept(request: inout URLRequest)
 }
+
 
 
 final class AuthenticationRequestInterceptor: ApiRequestInterceptor {
